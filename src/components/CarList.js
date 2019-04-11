@@ -4,6 +4,7 @@ import 'react-table/react-table.css';
 import Button from '@material-ui/core/Button';
 import EditCar from './EditCar';
 import AddCar from './AddCar';import Snackbar from '@material-ui/core/Snackbar';
+import { CSVLink } from "react-csv";
 
 
 class CarList extends Component {
@@ -106,6 +107,9 @@ class CarList extends Component {
         return (
             <div>
                 <AddCar saveCar={this.saveCar} />
+                <CSVLink data={this.state.cars} separator={";"}>
+                    Download CSV
+                </CSVLink>
                 <ReactTable data={this.state.cars} columns={columns} filterable={true} />
                 <Snackbar
                     anchorOrigin={{
